@@ -5,7 +5,7 @@ const { Contact } = require("../models");
 const isValidId = async (req, res, next) => {
   const { contactId } = req.params;
   if (!isValidObjectId(contactId))
-    next(HttpError(400, `${contactId} is not valid`));
+    next(HttpError(404, `${contactId} is not valid`));
 
   const { id: owner } = req.user;
 
